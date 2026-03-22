@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bramp9k4m7n9"]
+
+[ext_resource type="Material" path="res://assets/texture/ramp_material.tres" id="1_ramp"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ramp"]
+points = PackedVector3Array(-12, -1.4, -6, 12, -1.4, -6, 12, -1.4, 6, -12, -1.4, 6, -12, 1.4, -6, -12, 1.4, 6, 16, -1.87, -6, 16, -1.87, 6)
+
+[sub_resource type="PrismMesh" id="PrismMesh_ramp"]
+left_to_right = 0.0
+size = Vector3(24, 2.8, 12)
+
+[node name="Ramp" type="Node3D"]
+
+[node name="RampBody" type="StaticBody3D" parent="." groups=["ramp"]]
+collision_layer = 1
+collision_mask = 1
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 0, 0.2, 6)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RampBody"]
+shape = SubResource("ConvexPolygonShape3D_ramp")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RampBody"]
+mesh = SubResource("PrismMesh_ramp")
+surface_material_override/0 = ExtResource("1_ramp")

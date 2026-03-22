@@ -1,0 +1,278 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/tutorial_controls.gd" id="1_script"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+bg_color = Color(0.06, 0.08, 0.12, 0.96)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.25, 0.35, 0.5, 0.9)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="TutorialControls" type="CanvasLayer"]
+layer = 11
+script = ExtResource("1_script")
+
+[node name="Panel" type="PanelContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -220.0
+offset_top = -280.0
+offset_right = 220.0
+offset_bottom = 280.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="Margin" type="MarginContainer" parent="Panel"]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="VBox" type="VBoxContainer" parent="Panel/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Title" type="Label" parent="Panel/Margin/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Управление"
+horizontal_alignment = 1
+
+[node name="KeysList" type="VBoxContainer" parent="Panel/Margin/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="W" type="HBoxContainer" parent="Panel/Margin/VBox/KeysList"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="KeyW" type="Label" parent="Panel/Margin/VBox/KeysList/W"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "W"
+vertical_alignment = 1
+
+[node name="DescW" type="Label" parent="Panel/Margin/VBox/KeysList/W"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 14
+text = "Вперёд"
+vertical_alignment = 1
+
+[node name="S" type="HBoxContainer" parent="Panel/Margin/VBox/KeysList"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="KeyS" type="Label" parent="Panel/Margin/VBox/KeysList/S"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "S"
+vertical_alignment = 1
+
+[node name="DescS" type="Label" parent="Panel/Margin/VBox/KeysList/S"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 14
+text = "Назад"
+vertical_alignment = 1
+
+[node name="A" type="HBoxContainer" parent="Panel/Margin/VBox/KeysList"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="KeyA" type="Label" parent="Panel/Margin/VBox/KeysList/A"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "A"
+vertical_alignment = 1
+
+[node name="DescA" type="Label" parent="Panel/Margin/VBox/KeysList/A"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 14
+text = "Влево"
+vertical_alignment = 1
+
+[node name="D" type="HBoxContainer" parent="Panel/Margin/VBox/KeysList"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="KeyD" type="Label" parent="Panel/Margin/VBox/KeysList/D"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "D"
+vertical_alignment = 1
+
+[node name="DescD" type="Label" parent="Panel/Margin/VBox/KeysList/D"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 14
+text = "Вправо"
+vertical_alignment = 1
+
+[node name="Space" type="HBoxContainer" parent="Panel/Margin/VBox/KeysList"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="KeySpace" type="Label" parent="Panel/Margin/VBox/KeysList/Space"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Space"
+vertical_alignment = 1
+
+[node name="DescSpace" type="Label" parent="Panel/Margin/VBox/KeysList/Space"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 14
+text = "Прыжок"
+vertical_alignment = 1
+
+[node name="Shift" type="HBoxContainer" parent="Panel/Margin/VBox/KeysList"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="KeyShift" type="Label" parent="Panel/Margin/VBox/KeysList/Shift"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Shift"
+vertical_alignment = 1
+
+[node name="DescShift" type="Label" parent="Panel/Margin/VBox/KeysList/Shift"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 14
+text = "Charge (Заряд) / Ledge grab (Зацеп) / Wall run (Бег по стене)"
+vertical_alignment = 1
+
+[node name="Ctrl" type="HBoxContainer" parent="Panel/Margin/VBox/KeysList"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="KeyCtrl" type="Label" parent="Panel/Margin/VBox/KeysList/Ctrl"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Ctrl"
+vertical_alignment = 1
+
+[node name="DescCtrl" type="Label" parent="Panel/Margin/VBox/KeysList/Ctrl"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 14
+text = "Crouch (Присед)"
+vertical_alignment = 1
+
+[node name="C" type="HBoxContainer" parent="Panel/Margin/VBox/KeysList"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="KeyC" type="Label" parent="Panel/Margin/VBox/KeysList/C"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "C"
+vertical_alignment = 1
+
+[node name="DescC" type="Label" parent="Panel/Margin/VBox/KeysList/C"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 14
+text = "Slide (Слайд)"
+vertical_alignment = 1
+
+[node name="LMB" type="HBoxContainer" parent="Panel/Margin/VBox/KeysList"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="KeyLMB" type="Label" parent="Panel/Margin/VBox/KeysList/LMB"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "LMB"
+vertical_alignment = 1
+
+[node name="DescLMB" type="Label" parent="Panel/Margin/VBox/KeysList/LMB"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 14
+text = "Стрельба"
+vertical_alignment = 1
+
+[node name="Mouse" type="HBoxContainer" parent="Panel/Margin/VBox/KeysList"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="KeyMouse" type="Label" parent="Panel/Margin/VBox/KeysList/Mouse"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Mouse"
+vertical_alignment = 1
+
+[node name="DescMouse" type="Label" parent="Panel/Margin/VBox/KeysList/Mouse"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 14
+text = "Обзор"
+vertical_alignment = 1
+
+[node name="R" type="HBoxContainer" parent="Panel/Margin/VBox/KeysList"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="KeyR" type="Label" parent="Panel/Margin/VBox/KeysList/R"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "R"
+vertical_alignment = 1
+
+[node name="DescR" type="Label" parent="Panel/Margin/VBox/KeysList/R"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 14
+text = "Restart (Перезапуск)"
+vertical_alignment = 1
+
+[node name="Escape" type="HBoxContainer" parent="Panel/Margin/VBox/KeysList"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="KeyEscape" type="Label" parent="Panel/Margin/VBox/KeysList/Escape"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Esc"
+vertical_alignment = 1
+
+[node name="DescEscape" type="Label" parent="Panel/Margin/VBox/KeysList/Escape"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 14
+text = "Пауза"
+vertical_alignment = 1
+
+[node name="HSep" type="HSeparator" parent="Panel/Margin/VBox"]
+layout_mode = 2
+
+[node name="StartBtn" type="Button" parent="Panel/Margin/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Старт"

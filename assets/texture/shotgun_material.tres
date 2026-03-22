@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3]
+
+[ext_resource type="Texture2D" uid="uid://bdfy8vl5qq7gm" path="res://assets/model/ДРОБОВИК ТЕКСТУРА.png" id="1_tex"]
+
+[resource]
+albedo_color = Color(1, 1, 1, 1)
+albedo_texture = ExtResource("1_tex")
+metallic = 0.25
+roughness = 0.55

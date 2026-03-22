@@ -1,0 +1,201 @@
+[gd_scene format=3 uid="uid://bev0wo82vbkj5"]
+
+[ext_resource type="Script" uid="uid://j7jemmn345uw" path="res://scripts/ui/pause_menu.gd" id="1_pause"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+bg_color = Color(0.08, 0.1, 0.12, 0.95)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.25, 0.35, 0.5, 0.8)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="PauseMenu" type="CanvasLayer" unique_id=407304990]
+process_mode = 3
+layer = 10
+script = ExtResource("1_pause")
+
+[node name="Panel" type="PanelContainer" parent="." unique_id=1120906839]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -240.0
+offset_right = 200.0
+offset_bottom = 240.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="Margin" type="MarginContainer" parent="Panel" unique_id=330606770]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBox" type="VBoxContainer" parent="Panel/Margin" unique_id=1598558124]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Title" type="Label" parent="Panel/Margin/VBox" unique_id=220043962]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Пауза"
+horizontal_alignment = 1
+
+[node name="ContinueBtn" type="Button" parent="Panel/Margin/VBox" unique_id=1928994754]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Продолжить"
+
+[node name="HSeparator" type="HSeparator" parent="Panel/Margin/VBox" unique_id=273439082]
+layout_mode = 2
+
+[node name="SensLabel" type="Label" parent="Panel/Margin/VBox" unique_id=596359228]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Чувствительность мыши"
+
+[node name="SensRow" type="HBoxContainer" parent="Panel/Margin/VBox" unique_id=1856025091]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="SensSlider" type="HSlider" parent="Panel/Margin/VBox/SensRow" unique_id=516765626]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 0.5
+max_value = 10.0
+step = 0.1
+value = 3.0
+
+[node name="SensValue" type="Label" parent="Panel/Margin/VBox/SensRow" unique_id=1307440587]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "0.003"
+vertical_alignment = 1
+
+[node name="InvertYCheck" type="CheckBox" parent="Panel/Margin/VBox" unique_id=1401857672]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Инвертировать ось Y мыши"
+
+[node name="FovLabel" type="Label" parent="Panel/Margin/VBox" unique_id=875377274]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "FOV"
+
+[node name="FovRow" type="HBoxContainer" parent="Panel/Margin/VBox" unique_id=756427083]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="FovSlider" type="HSlider" parent="Panel/Margin/VBox/FovRow" unique_id=1944350512]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 60.0
+max_value = 120.0
+value = 90.0
+
+[node name="FovValue" type="Label" parent="Panel/Margin/VBox/FovRow" unique_id=299749285]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "90"
+vertical_alignment = 1
+
+[node name="VolumeLabel" type="Label" parent="Panel/Margin/VBox" unique_id=749778419]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Громкость SFX"
+
+[node name="VolumeRow" type="HBoxContainer" parent="Panel/Margin/VBox" unique_id=1573740627]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="VolumeSlider" type="HSlider" parent="Panel/Margin/VBox/VolumeRow" unique_id=1460559456]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = -40.0
+max_value = 6.0
+
+[node name="VolumeValue" type="Label" parent="Panel/Margin/VBox/VolumeRow" unique_id=239522032]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "0 dB"
+vertical_alignment = 1
+
+[node name="VideoLabel" type="Label" parent="Panel/Margin/VBox" unique_id=1892591656]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Видео"
+
+[node name="VideoGrid" type="GridContainer" parent="Panel/Margin/VBox" unique_id=982163771]
+layout_mode = 2
+theme_override_constants/h_separation = 16
+theme_override_constants/v_separation = 4
+columns = 4
+
+[node name="SSAOCheck" type="CheckBox" parent="Panel/Margin/VBox/VideoGrid" unique_id=1369558040]
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+button_pressed = true
+text = "SSAO"
+
+[node name="SSILCheck" type="CheckBox" parent="Panel/Margin/VBox/VideoGrid" unique_id=1605990388]
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+button_pressed = true
+text = "SSIL"
+
+[node name="GlowCheck" type="CheckBox" parent="Panel/Margin/VBox/VideoGrid" unique_id=816424780]
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+button_pressed = true
+text = "Glow"
+
+[node name="MotionBlurCheck" type="CheckBox" parent="Panel/Margin/VBox/VideoGrid" unique_id=1021834188]
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+button_pressed = true
+text = "Motion Blur"
+
+[node name="SDFGICheck" type="CheckBox" parent="Panel/Margin/VBox/VideoGrid" unique_id=1021834189]
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+button_pressed = false
+text = "SDFGI"
+
+[node name="VolumetricFogCheck" type="CheckBox" parent="Panel/Margin/VBox/VideoGrid" unique_id=1021834190]
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+button_pressed = false
+text = "Vol. Fog"
+
+[node name="SpeedIndicatorCheck" type="CheckBox" parent="Panel/Margin/VBox" unique_id=677769231]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+button_pressed = true
+text = "Показатель скорости"
+
+[node name="RestartBtn" type="Button" parent="Panel/Margin/VBox" unique_id=838887758]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Перезапуск"
+
+[node name="MenuBtn" type="Button" parent="Panel/Margin/VBox" unique_id=446316185]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "В меню"
+
+[node name="ExitBtn" type="Button" parent="Panel/Margin/VBox" unique_id=1341672427]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Выход"

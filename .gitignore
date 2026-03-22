@@ -1,0 +1,7 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+
+# Windows / desktop exports (often >100MB; do not commit — use Releases instead)
+*.exe
+*.pck

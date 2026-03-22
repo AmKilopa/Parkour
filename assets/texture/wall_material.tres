@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bgo1sf0xtbs3i"]
+
+[ext_resource type="Texture2D" uid="uid://ww5fmfsjrt5g" path="res://assets/texture/brick_diffuse.jpg" id="1_1rmat"]
+
+[resource]
+resource_name = "Material"
+albedo_texture = ExtResource("1_1rmat")
+roughness = 0.8
+uv1_scale = Vector3(3, 2, 1)

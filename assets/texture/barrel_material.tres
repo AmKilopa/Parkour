@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cbtrnuxmob846"]
+
+[ext_resource type="Texture2D" uid="uid://c47fqf3wh7o4r" path="res://assets/texture/barrel.png" id="1_barrel"]
+
+[resource]
+resource_name = "Material.002"
+albedo_texture = ExtResource("1_barrel")
+emission_enabled = true

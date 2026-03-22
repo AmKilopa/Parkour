@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://dys561h20u4iu"]
+
+[ext_resource type="Script" path="res://scripts/level_objects/level_finish.gd" id="1_script"]
+[ext_resource type="Material" path="res://assets/texture/finish_material.tres" id="2_finish"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D"]
+size = Vector3(10, 2, 10)
+
+[sub_resource type="BoxMesh" id="BoxMesh"]
+size = Vector3(10, 0.2, 10)
+
+[node name="LevelFinish" type="Area3D" groups=["level_finish"]]
+collision_layer = 0
+collision_mask = 1
+monitoring = true
+monitorable = false
+script = ExtResource("1_script")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("BoxShape3D")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+mesh = SubResource("BoxMesh")
+surface_material_override/0 = ExtResource("2_finish")

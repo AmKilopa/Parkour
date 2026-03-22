@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://j2jdpmqn15dj"]
+
+[ext_resource type="Script" uid="uid://dohqljaxop43q" path="res://scripts/effects/explosion.gd" id="1_script"]
+
+[sub_resource type="Gradient" id="Gradient_fire"]
+offsets = PackedFloat32Array(0, 0.3, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.6, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_fire"]
+gradient = SubResource("Gradient_fire")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fire"]
+emission_shape = 2
+emission_sphere_radius = 0.2
+direction = Vector3(0, 1, 0)
+spread = 180.0
+initial_velocity_min = 8.0
+initial_velocity_max = 25.0
+gravity = Vector3(0, -5, 0)
+scale_min = 0.35
+scale_max = 0.95
+color = Color(1, 0.55, 0.2, 1)
+color_ramp = SubResource("GradientTexture1D_fire")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fire"]
+transparency = 1
+shading_mode = 2
+vertex_color_use_as_albedo = true
+roughness = 0.35
+emission_enabled = true
+emission = Color(1, 0.5, 0.1, 1)
+emission_energy_multiplier = 3.5
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_fire"]
+material = SubResource("StandardMaterial3D_fire")
+size = Vector2(0.45, 0.45)
+
+[sub_resource type="Gradient" id="Gradient_smoke"]
+offsets = PackedFloat32Array(0, 0.5, 1)
+colors = PackedColorArray(1, 1, 1, 0.7, 1, 1, 1, 0.3, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_smoke"]
+gradient = SubResource("Gradient_smoke")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_smoke"]
+emission_shape = 2
+emission_sphere_radius = 0.15
+direction = Vector3(0, 1, 0)
+spread = 180.0
+initial_velocity_min = 2.0
+initial_velocity_max = 8.0
+gravity = Vector3(0, 2, 0)
+scale_min = 0.5
+scale_max = 1.2
+color = Color(0.35, 0.22, 0.15, 0.88)
+color_ramp = SubResource("GradientTexture1D_smoke")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_smoke"]
+transparency = 1
+shading_mode = 2
+vertex_color_use_as_albedo = true
+roughness = 0.95
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_smoke"]
+lightmap_size_hint = Vector2i(5, 5)
+material = SubResource("StandardMaterial3D_smoke")
+size = Vector2(0.6, 0.6)
+
+[node name="Explosion" type="Node3D" unique_id=1967059562]
+script = ExtResource("1_script")
+
+[node name="Fire" type="GPUParticles3D" parent="." unique_id=1951757444]
+emitting = false
+amount = 50
+lifetime = 0.7
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_fire")
+draw_pass_1 = SubResource("QuadMesh_fire")
+
+[node name="Smoke" type="GPUParticles3D" parent="." unique_id=1556127455]
+emitting = false
+amount = 30
+lifetime = 1.2
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_smoke")
+draw_pass_1 = SubResource("QuadMesh_smoke")

@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://drgjouwm41kj4"]
+
+[ext_resource type="PackedScene" uid="uid://bkhdqqcefvs52" path="res://assets/model/shotgun.fbx" id="1_model"]
+[ext_resource type="Script" uid="uid://bwwynmqleaf6o" path="res://scripts/player/shotgun_visual.gd" id="2_script"]
+
+[node name="Shotgun" type="Node3D" unique_id=1023509415]
+transform = Transform3D(0.06, 0, 0, 0, 0.06, 0, 0, 0, 0.06, 0, 0, 0)
+script = ExtResource("2_script")
+
+[node name="ShotgunModel" parent="." unique_id=946691431 instance=ExtResource("1_model")]

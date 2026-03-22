@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://ca3242cq17a1l"]
+
+[ext_resource type="Script" uid="uid://mrrv387d3rq2" path="res://scripts/ui/replay_viewer.gd" id="1_script"]
+
+[node name="ReplayViewer" type="Node3D" unique_id=59539346]
+script = ExtResource("1_script")
+
+[node name="LevelContainer" type="Node3D" parent="." unique_id=249307248]
+
+[node name="Ghost" type="MeshInstance3D" parent="." unique_id=453330005]
+
+[node name="CameraPivot" type="Node3D" parent="." unique_id=2129381897]
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot" unique_id=521990105]
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 1.5, 3)
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1307811057]
+layer = 10
+
+[node name="PauseLabel" type="Label" parent="UI" unique_id=1236426210]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -60.0
+offset_top = 20.0
+offset_right = 60.0
+offset_bottom = 50.0
+theme_override_colors/font_color = Color(1, 1, 1, 0.9)
+theme_override_font_sizes/font_size = 18
+text = "ПАУЗА — R | ПКМ — поворот | Q/E — камера вниз/вверх | Колесо — скорость"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SliderContainer" type="MarginContainer" parent="UI" unique_id=830611145]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = -40.0
+offset_right = -40.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="TimeSlider" type="HSlider" parent="UI/SliderContainer" unique_id=773255405]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+step = 0.01

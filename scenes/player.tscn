@@ -1,0 +1,252 @@
+[gd_scene format=3 uid="uid://g3gtbrao2wyv"]
+
+[ext_resource type="Script" uid="uid://c86dmc5alxcgt" path="res://scripts/player/player.gd" id="1_player"]
+[ext_resource type="Script" uid="uid://s5av28od1l8b" path="res://scripts/player/crosshair.gd" id="2_crosshair"]
+[ext_resource type="PackedScene" uid="uid://drgjouwm41kj4" path="res://scenes/player/shotgun.tscn" id="4_shotgun"]
+[ext_resource type="Material" path="res://assets/texture/shotgun_material.tres" id="5_shotgun_mat"]
+[ext_resource type="Script" path="res://scripts/effects/camera_motion_blur.gd" id="6_camera_blur"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_player"]
+radius = 0.35
+height = 1.75
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_player"]
+radius = 0.35
+height = 1.75
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_player"]
+albedo_color = Color(0.4, 0.5, 0.7, 1)
+roughness = 0.8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_debug"]
+bg_color = Color(0.1, 0.12, 0.18, 0.85)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_speed"]
+bg_color = Color(0.06, 0.08, 0.14, 0.75)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.25, 0.35, 0.55, 0.5)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="Player" type="CharacterBody3D" unique_id=93619999 groups=["player"]]
+floor_max_angle = 1.2
+script = ExtResource("1_player")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=282652525]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.875, 0)
+shape = SubResource("CapsuleShape3D_player")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1687251372]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.875, 0)
+cast_shadow = 0
+mesh = SubResource("CapsuleMesh_player")
+surface_material_override/0 = SubResource("StandardMaterial3D_player")
+
+[node name="FootstepPlayer" type="AudioStreamPlayer" parent="." unique_id=2093560219]
+volume_db = -12.0
+
+[node name="LandPlayer" type="AudioStreamPlayer" parent="." unique_id=1621338740]
+volume_db = -3.0
+
+[node name="WindPlayer" type="AudioStreamPlayer" parent="." unique_id=1054180519]
+volume_db = -12.0
+
+[node name="CameraPivot" type="Node3D" parent="." unique_id=507344527]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.55, 0)
+
+[node name="CameraBob" type="Node3D" parent="CameraPivot" unique_id=800951140]
+
+[node name="Shotgun" parent="CameraPivot/CameraBob" unique_id=332303026 instance=ExtResource("4_shotgun")]
+transform = Transform3D(0.46499997, 0, 0, 0, 0.42535463, 0.18787871, 0, -0.18787871, 0.42535463, 0.3366252, -0.60634136, 1.381328)
+material_override = ExtResource("5_shotgun_mat")
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot/CameraBob" unique_id=902520882]
+script = ExtResource("6_camera_blur")
+
+[node name="SpeedUI" type="CanvasLayer" parent="." unique_id=663083647]
+layer = 2
+
+[node name="StatePanel" type="PanelContainer" parent="SpeedUI" unique_id=201950433]
+visible = false
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -240.0
+offset_top = 15.0
+offset_right = -15.0
+offset_bottom = 380.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_debug")
+
+[node name="MarginContainer" type="MarginContainer" parent="SpeedUI/StatePanel" unique_id=874358602]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 8
+
+[node name="StateLabel" type="Label" parent="SpeedUI/StatePanel/MarginContainer" unique_id=1261813941]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 13
+
+[node name="SpeedPanel" type="PanelContainer" parent="SpeedUI" unique_id=2110724583]
+visible = false
+offset_left = 15.0
+offset_top = 15.0
+offset_right = 95.0
+offset_bottom = 50.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_speed")
+
+[node name="MarginContainer" type="MarginContainer" parent="SpeedUI/SpeedPanel" unique_id=1209499489]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 6
+
+[node name="SpeedLabel" type="Label" parent="SpeedUI/SpeedPanel/MarginContainer" unique_id=1547434924]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.93, 1, 1)
+theme_override_colors/font_outline_color = Color(0.05, 0.08, 0.15, 0.8)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 18
+text = "0.0"
+
+[node name="TimerPanel" type="PanelContainer" parent="SpeedUI" unique_id=363580541]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -110.0
+offset_top = 15.0
+offset_right = 110.0
+offset_bottom = 55.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_speed")
+
+[node name="MarginContainer" type="MarginContainer" parent="SpeedUI/TimerPanel" unique_id=1110511325]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SpeedUI/TimerPanel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="TimerLabel" type="Label" parent="SpeedUI/TimerPanel/MarginContainer/HBoxContainer" unique_id=2121395196]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.95, 0.97, 1, 1)
+theme_override_colors/font_outline_color = Color(0.05, 0.08, 0.15, 0.9)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 24
+text = "00:00.00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="SpeedUI/TimerPanel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.2, 0.9, 0.3, 1)
+theme_override_colors/font_outline_color = Color(0.05, 0.08, 0.15, 0.9)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 24
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LevelCompletePanel" type="PanelContainer" parent="SpeedUI" unique_id=2072601763]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -100.0
+offset_right = 200.0
+offset_bottom = 120.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_speed")
+
+[node name="MarginContainer" type="MarginContainer" parent="SpeedUI/LevelCompletePanel" unique_id=1796452024]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 20
+
+[node name="VBox" type="VBoxContainer" parent="SpeedUI/LevelCompletePanel/MarginContainer" unique_id=1349984031]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="TitleLabel" type="Label" parent="SpeedUI/LevelCompletePanel/MarginContainer/VBox" unique_id=2012939901]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.9, 0.5, 1)
+theme_override_font_sizes/font_size = 28
+text = "Уровень пройден!"
+horizontal_alignment = 1
+
+[node name="TimeLabel" type="Label" parent="SpeedUI/LevelCompletePanel/MarginContainer/VBox" unique_id=167998682]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.97, 1, 1)
+theme_override_font_sizes/font_size = 22
+text = "Время: 00:00.00"
+horizontal_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="SpeedUI/LevelCompletePanel/MarginContainer/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.2, 0.9, 0.3, 1)
+theme_override_font_sizes/font_size = 22
+text = "Баллы: 100"
+horizontal_alignment = 1
+
+[node name="BestLabel" type="Label" parent="SpeedUI/LevelCompletePanel/MarginContainer/VBox" unique_id=1577088480]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.9, 1, 1)
+theme_override_font_sizes/font_size = 16
+text = "Рекорд: 00:00.00"
+horizontal_alignment = 1
+
+[node name="ButtonsRow" type="HBoxContainer" parent="SpeedUI/LevelCompletePanel/MarginContainer/VBox" unique_id=945902088]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="RestartBtn" type="Button" parent="SpeedUI/LevelCompletePanel/MarginContainer/VBox/ButtonsRow" unique_id=1873052070]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 16
+text = "Перезапуск"
+
+[node name="NextBtn" type="Button" parent="SpeedUI/LevelCompletePanel/MarginContainer/VBox/ButtonsRow" unique_id=143708007]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 16
+text = "Следующий"
+
+[node name="Crosshair" type="Control" parent="SpeedUI" unique_id=938875307]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -12.0
+offset_top = -12.0
+offset_right = 12.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_crosshair")
+line_length = 8
+gap = 5

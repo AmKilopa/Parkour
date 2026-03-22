@@ -1,0 +1,22 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://cah1ms4780ttr"]
+
+[ext_resource type="Shader" uid="uid://ed8j5y01h2f" path="res://shaders/panorama.gdshader" id="1_shader"]
+[ext_resource type="Texture2D" uid="uid://daivkofiht4fg" path="res://assets/sky/citrus_orchard_puresky_4k.hdr" id="2_hdr"]
+
+[resource]
+shader = ExtResource("1_shader")
+shader_parameter/sky_color = Color(1, 0.96, 0.9, 1)
+shader_parameter/sky_texture = ExtResource("2_hdr")
+shader_parameter/wind_direction = Vector2(-1, 0.5)
+shader_parameter/wind_intensity = 0.0
+shader_parameter/wind_speed = 0.0
+shader_parameter/ground_enabled = false
+shader_parameter/ground_threshold = 0.0
+shader_parameter/ground_blend = 0.2
+shader_parameter/sun_enabled = true
+shader_parameter/sun_rotation = Vector2(45, 25)
+shader_parameter/sun_threshold = 0.98
+shader_parameter/sun_blend = 0.02
+shader_parameter/sun_show = true
+shader_parameter/pole_threshold = 0.96
+shader_parameter/pole_whirlwind = true

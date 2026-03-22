@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bqx8k2m5n7wp4"]
+
+[ext_resource type="Material" path="res://assets/texture/platform_material.tres" id="1_platform"]
+
+[sub_resource type="BoxMesh" id="BoxMesh"]
+size = Vector3(4, 0.3, 4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D"]
+size = Vector3(4, 0.3, 4)
+
+[node name="Block" type="StaticBody3D" unique_id=1326944466]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1429609417]
+mesh = SubResource("BoxMesh")
+surface_material_override/0 = ExtResource("1_platform")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1719168900]
+shape = SubResource("BoxShape3D")

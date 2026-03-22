@@ -1,0 +1,218 @@
+[gd_scene format=3 uid="uid://bee3k4c7bl7ng"]
+
+[ext_resource type="Script" uid="uid://cbgu1yh01ep1b" path="res://scripts/level_entry.gd" id="1_main"]
+[ext_resource type="PackedScene" uid="uid://g3gtbrao2wyv" path="res://scenes/player.tscn" id="1_player"]
+[ext_resource type="PackedScene" path="res://scenes/ui/tutorial_controls.tscn" id="2_controls"]
+[ext_resource type="PackedScene" uid="uid://bev0wo82vbkj5" path="res://scenes/ui/pause_menu.tscn" id="2_pause"]
+[ext_resource type="PackedScene" uid="uid://etouqy0vrfv8" path="res://scenes/level_objects/spawn_point.tscn" id="3_spawn"]
+[ext_resource type="PackedScene" uid="uid://bqx8k2m5n7wp4" path="res://scenes/level_objects/block.tscn" id="4_block"]
+[ext_resource type="PackedScene" uid="uid://dys561h20u4iu" path="res://scenes/level_objects/level_finish.tscn" id="7_finish"]
+[ext_resource type="Sky" path="res://assets/sky/sky.tres" id="7_sky"]
+[ext_resource type="PackedScene" uid="uid://c3wall7k2m5n7" path="res://scenes/level_objects/wall.tscn" id="8_nlqja"]
+[ext_resource type="PackedScene" path="res://scenes/level_objects/floating_text.tscn" id="8_text"]
+[ext_resource type="PackedScene" uid="uid://bramqak4m7oa" path="res://scenes/level_objects/ramp.tscn" id="10_0epgs"]
+[ext_resource type="PackedScene" uid="uid://4y70o10whbqg" path="res://scenes/level_objects/explosive_barrel.tscn" id="11_g2equ"]
+[ext_resource type="PackedScene" uid="uid://c6hlbb827jfvi" path="res://scenes/level_objects/shotgun_pickup.tscn" id="12_pickup"]
+
+[sub_resource type="Environment" id="Environment_ej4tf"]
+background_mode = 2
+sky = ExtResource("7_sky")
+ambient_light_source = 3
+ambient_light_color = Color(0.85, 0.78, 0.92, 1)
+ambient_light_energy = 0.72
+reflected_light_source = 2
+tonemap_mode = 2
+tonemap_exposure = 0.18
+tonemap_white = 1.12
+ssr_enabled = true
+ssao_enabled = true
+ssao_radius = 2.5
+ssao_intensity = 0.58
+ssao_detail = 0.6
+ssil_enabled = true
+ssil_radius = 4.0
+ssil_intensity = 0.85
+sdfgi_use_occlusion = true
+glow_enabled = true
+glow_normalized = true
+glow_intensity = 0.42
+glow_strength = 1.35
+glow_bloom = 0.22
+glow_hdr_threshold = 0.72
+glow_hdr_scale = 1.8
+fog_enabled = true
+fog_light_color = Color(0.92, 0.88, 1, 1)
+fog_light_energy = 0.72
+fog_sky_affect = 0.52
+volumetric_fog_density = 0.02
+volumetric_fog_albedo = Color(0.96, 0.92, 1, 1)
+volumetric_fog_emission = Color(0.88, 0.82, 0.98, 1)
+volumetric_fog_emission_energy = 0.0
+volumetric_fog_gi_inject = 0.9
+volumetric_fog_length = 15.84
+volumetric_fog_sky_affect = 0.2
+adjustment_enabled = true
+adjustment_brightness = 1.06
+adjustment_contrast = 1.12
+adjustment_saturation = 1.3
+
+[node name="Tutorial" type="Node3D" unique_id=73825105]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 50, 0)
+script = ExtResource("1_main")
+
+[node name="PauseMenu" parent="." unique_id=269223685 instance=ExtResource("2_pause")]
+
+[node name="TutorialControls" parent="." unique_id=990332618 instance=ExtResource("2_controls")]
+
+[node name="SpawnPoint" parent="." unique_id=1576849725 instance=ExtResource("3_spawn")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 0, 0.25, -2.2681131)
+
+[node name="Player" parent="." unique_id=1519227248 instance=ExtResource("1_player")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 0, 0.25, -2.2681131)
+start_with_shotgun = false
+
+[node name="StartPlatform" parent="." unique_id=1634194426 instance=ExtResource("4_block")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, -2.5)
+
+[node name="StartPlatform2" parent="." unique_id=1326944466 instance=ExtResource("4_block")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 9.517441)
+
+[node name="StartPlatform4" parent="." unique_id=1997564169 instance=ExtResource("4_block")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 29.579575)
+
+[node name="StartPlatform5" parent="." unique_id=1846471153 instance=ExtResource("4_block")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 49.780445)
+
+[node name="StartPlatform6" parent="." unique_id=1379489576 instance=ExtResource("4_block")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 64.78641)
+
+[node name="Block2" parent="." unique_id=539998712 instance=ExtResource("4_block")]
+transform = Transform3D(1.5, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 84.84909)
+
+[node name="Block3" parent="." unique_id=1503327180 instance=ExtResource("4_block")]
+transform = Transform3D(5, 0, 0, 0, 2.5, 0, 0, 0, 5, 0, -19.661339, 256.27124)
+
+[node name="Block4" parent="." unique_id=1654801434 instance=ExtResource("4_block")]
+transform = Transform3D(5, 0, 0, 0, 2.5, 0, 0, 0, 5, 0, -19.661339, 325.07343)
+
+[node name="Block6" parent="." unique_id=568482198 instance=ExtResource("4_block")]
+transform = Transform3D(5, 0, 0, 0, 2.5, 0, 0, 0, 5, 0, -19.661339, 411.26355)
+
+[node name="Block7" parent="." unique_id=1012015203 instance=ExtResource("4_block")]
+transform = Transform3D(5, 0, 0, 0, 2.5, 0, 0, 0, 5, 0, -19.661339, 512.8175)
+
+[node name="Block5" parent="." unique_id=2102095922 instance=ExtResource("4_block")]
+transform = Transform3D(15, 0, 0, 0, 7.5, 0, 0, 0, 15, 0, -19.661339, 366.90002)
+
+[node name="LevelFinish" parent="." unique_id=211338215 instance=ExtResource("7_finish")]
+transform = Transform3D(2.5, 0, 0, 0, 25, 0, 0, 0, 2.5, -32.50213, -32.125614, 512.6819)
+
+[node name="FloatingText" parent="." unique_id=1802144982 instance=ExtResource("8_text")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.13341022, 5.1354065, 9.95079)
+text = "Jump (Прыжок)
+Space"
+
+[node name="FloatingText2" parent="." unique_id=1014539579 instance=ExtResource("8_text")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.13341022, 5.1354065, 29.67009)
+text = "Long Jump (Лонг Джамп)
+Shift у края + Space"
+
+[node name="FloatingText3" parent="." unique_id=1613687162 instance=ExtResource("8_text")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.13341022, 7.409046, 50.389534)
+text = "Ledge Grab (Зацеп)
+Space + Shift у края"
+
+[node name="FloatingText4" parent="." unique_id=1849451072 instance=ExtResource("8_text")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.13341022, 7.409046, 62.89538)
+text = "Crouch (Присед)
+Ctrl"
+
+[node name="ShotgunPlatform" parent="." unique_id=1186293827 instance=ExtResource("4_block")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 82)
+
+[node name="FloatingText5" parent="." unique_id=1672063735 instance=ExtResource("8_text")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.13341022, 7.409046, 86.03823)
+text = "Shotgun (Дробовик)
+Space + ЛКМ в воздухе"
+
+[node name="FloatingText6" parent="." unique_id=645437079 instance=ExtResource("8_text")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.13341022, 7.409046, 113.69323)
+text = "Slide (Слайд)
+C у края"
+
+[node name="FloatingText7" parent="." unique_id=1629651420 instance=ExtResource("8_text")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.99841475, -8.540958, 267.9512)
+text = "Wall Run (Бег по стене)
+Прыжок на стену → бег
+Прыжок → отброс в сторону камеры"
+
+[node name="FloatingText8" parent="." unique_id=1738172009 instance=ExtResource("8_text")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.99841475, -8.540958, 330.92886)
+text = "Bunny Hop
+Чувствуй ритм"
+
+[node name="FloatingText9" parent="." unique_id=317139709 instance=ExtResource("8_text")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.99841475, -7.6028595, 379.21304)
+text = "Slide (Слайд)
+C + Скорость"
+
+[node name="FloatingText10" parent="." unique_id=166096742 instance=ExtResource("8_text")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.22317672, -13.195366, 415.43942)
+text = "Explosive Barrel (Взрывная бочка)
+Дробовик → отброс в сторону выстрела
+Ближе → дальше"
+
+[node name="FloatingText11" parent="." unique_id=1352446995 instance=ExtResource("8_text")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.029794931, -13.195366, 491.56342)
+text = "Finish (Финиш)
+Зона выше, чем кажется"
+
+[node name="Wall" parent="." unique_id=772023513 instance=ExtResource("8_nlqja")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.1266861, 4.3134766, 65.72542)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1966000501]
+transform = Transform3D(0.6499675, -0.44524607, 0.61587197, 0, 0.81039834, 0.5858794, -0.759962, -0.38080254, 0.52673256, 0, 50, 46.831856)
+light_color = Color(1, 0.95, 0.88, 1)
+light_energy = 1.55
+light_indirect_energy = 0.65
+shadow_enabled = true
+directional_shadow_mode = 1
+directional_shadow_split_2 = 0.28
+
+[node name="RimLight" type="DirectionalLight3D" parent="." unique_id=578569792]
+transform = Transform3D(-0.5, -0.3, 0.81, 0, 0.94, 0.34, -0.87, 0.15, -0.47, 0, 40, -30)
+light_color = Color(1, 0.85, 0.7, 1)
+light_energy = 0.55
+
+[node name="AmbientLight" type="DirectionalLight3D" parent="." unique_id=375277604]
+transform = Transform3D(-0.25960106, -0.55602795, -0.7895823, 0, 0.8176134, -0.5757676, 0.96571594, -0.14946988, -0.21225332, 0, 30, 31.334854)
+light_color = Color(0.78, 0.72, 0.92, 1)
+light_energy = 0.55
+
+[node name="Ramp" parent="." unique_id=384148232 instance=ExtResource("10_0epgs")]
+transform = Transform3D(-0.50113326, 0, -8.742277e-08, 0, 7.1759205, 0, 4.3810463e-08, 0, -0.99999994, -0.018684387, -11.3078, 106.84244)
+
+[node name="Wall2" parent="." unique_id=1373036433 instance=ExtResource("8_nlqja")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6258154, -16.974262, 276.51617)
+
+[node name="Wall3" parent="." unique_id=1861608058 instance=ExtResource("8_nlqja")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.6959114, -16.974262, 284.1583)
+
+[node name="Wall4" parent="." unique_id=1312472857 instance=ExtResource("8_nlqja")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6258154, -16.974262, 294.77042)
+
+[node name="Wall5" parent="." unique_id=1376530835 instance=ExtResource("8_nlqja")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.6959114, -16.974262, 305.23892)
+
+[node name="ExplosiveBarrel" parent="." unique_id=772978594 instance=ExtResource("11_g2equ")]
+transform = Transform3D(0.18491392, 0, 0.46455014, 0, 0.5, 0, -0.46455014, 0, 0.18491392, 0.14012909, -19.442324, 408.7902)
+
+[node name="Wall6" parent="." unique_id=1415902540 instance=ExtResource("8_nlqja")]
+transform = Transform3D(-8.742276e-08, 0, 18.117771, 0, 20.954916, 0, -1.9999996, 0, -7.9195297e-07, -0.83623075, 40.63777, 524.2822)
+visible = false
+
+[node name="ShotgunPickup" parent="." unique_id=936964276 instance=ExtResource("12_pickup")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.7494464, 0.30828857, 68.50789)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=728489129 groups=["world_environment"]]
+environment = SubResource("Environment_ej4tf")

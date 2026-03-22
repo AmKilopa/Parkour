@@ -1,0 +1,23 @@
+class_name PlayerNodes
+
+const CAMERA_PIVOT := "CameraPivot"
+const CAMERA_BOB := "CameraPivot/CameraBob"
+const CAMERA_3D := "CameraPivot/CameraBob/Camera3D"
+const SHOTGUN := "CameraPivot/CameraBob/Shotgun"
+const FOOTSTEP_PLAYER := "FootstepPlayer"
+const LAND_PLAYER := "LandPlayer"
+const WIND_PLAYER := "WindPlayer"
+
+const SPEED_UI := "SpeedUI"
+const TIMER_LABEL := "SpeedUI/TimerPanel/MarginContainer/HBoxContainer/TimerLabel"
+const SCORE_LABEL := "SpeedUI/TimerPanel/MarginContainer/HBoxContainer/ScoreLabel"
+const SPEED_PANEL := "SpeedUI/SpeedPanel"
+const SPEED_LABEL := "SpeedUI/SpeedPanel/MarginContainer/SpeedLabel"
+const STATE_PANEL := "SpeedUI/StatePanel"
+const STATE_LABEL := "SpeedUI/StatePanel/MarginContainer/StateLabel"
+const LEVEL_COMPLETE_PANEL := "SpeedUI/LevelCompletePanel"
+const LEVEL_COMPLETE_TIME := "SpeedUI/LevelCompletePanel/MarginContainer/VBox/TimeLabel"
+const LEVEL_COMPLETE_SCORE := "SpeedUI/LevelCompletePanel/MarginContainer/VBox/ScoreLabel"
+const LEVEL_COMPLETE_BEST := "SpeedUI/LevelCompletePanel/MarginContainer/VBox/BestLabel"
+const RESTART_BTN := "SpeedUI/LevelCompletePanel/MarginContainer/VBox/ButtonsRow/RestartBtn"
+const NEXT_BTN := "SpeedUI/LevelCompletePanel/MarginContainer/VBox/ButtonsRow/NextBtn"
