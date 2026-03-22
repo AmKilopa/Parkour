@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bmfffh2dw418y"]
+
+[ext_resource type="Texture2D" uid="uid://c47fqf3wh7o4r" path="res://assets/model/текстура бочки.png" id="1_xdydr"]
+
+[resource]
+resource_name = "Material.002"
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_xdydr")
+emission_enabled = true
